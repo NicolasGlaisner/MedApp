@@ -7,8 +7,14 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item>
+    <ion-label color="primary" stacked>Nom du médicament</ion-label>
+    <ion-input type="text" placeholder="Search" [(ngModel)]="medName"></ion-input>
+  </ion-item>
+  <button ion-button (click)="searchMed()">Valider</button>
+  <ion-list>
+    <button ion-item *ngFor="let med of meds">
+      {{ med.denomination }}
+    </button>
+  </ion-list>
 </ion-content>

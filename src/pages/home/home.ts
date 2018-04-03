@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { Observable } from 'rxjs/Observable';
+import { RestProvider } from '../../providers/rest/rest'
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  meds: Observable<any>;
+  medName = '';
+  constructor(public navCtrl: NavController, private restProvide: RestProvider) {}
 
-  constructor(public navCtrl: NavController) {
+  searchMed(name){
+    this.restProvide.getMed(this.medName)
+    .subscribe(data => {
+      this.meds = data;
+      console.log(this.meds);
+    });
 
   }
 
