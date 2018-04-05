@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Mamoune App
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,7 +13,7 @@
   </ion-item>
   <button ion-button (click)="searchMed()">Valider</button>
   <ion-list>
-    <button ion-item *ngFor="let med of meds">
+    <button ion-item *ngFor="let med of meds" (click)="onClick(med.codeCIS)">
       {{ med.denomination }}
     </button>
   </ion-list>

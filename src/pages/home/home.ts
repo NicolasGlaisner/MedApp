@@ -7,8 +7,9 @@ import { RestProvider } from '../../providers/rest/rest'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  meds: Observable<any>;
+  meds: Array<any>;
   medName = '';
+
   constructor(public navCtrl: NavController, private restProvide: RestProvider) {}
 
   searchMed(name){
@@ -17,7 +18,9 @@ export class HomePage {
       this.meds = data;
       console.log(this.meds);
     });
-
   }
-
+  onClick(id:string){
+    console.log(id);
+    this.navCtrl.push("DetailPage",{medid: id} );
+  }
 }

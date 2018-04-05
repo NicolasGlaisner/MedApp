@@ -15,5 +15,10 @@ export class RestProvider {
     console.log(medName);
     return this.http.get('https://open-medicaments.fr/api/v1/medicaments?query='+ encodeURIComponent(medName));
   }
+  
+  getDetailMed(med){
+    console.log(med);
+    return this.http.get('https://open-medicaments.fr/api/v1/medicaments/'+ encodeURIComponent(med));
+  }
 
 }
